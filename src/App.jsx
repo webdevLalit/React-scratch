@@ -1,28 +1,20 @@
-const reactDescriptions = ["Fundamental","Crucial","Core"]
-
-function genRandomInt(max){
-  return Math.floor(Math.random() * (max + 1));
-}
-
-//first custom component
-function Header(){
-  return(
-     <header>
-        <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
-        <h1>React Essentials</h1>
-        <p>
-          {reactDescriptions[genRandomInt(2)]} React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
-  )
-}
+import Header from './Components/Header.jsx'
+import Coreconcepts  from './Components/CoreConcepts.jsx'
+import { CORE_CONCEPTS } from './data.js';
 
 function App() {
   return (
     <div>  
       <Header />   
       <main>
+        <section id="core-concepts">
+          <ul>
+            <Coreconcepts {...CORE_CONCEPTS[0]}/> {/* this is an alterntive as we have same name of keys as we have defined */ }
+            <Coreconcepts {...CORE_CONCEPTS[1]}/>
+            <Coreconcepts {...CORE_CONCEPTS[2]} />
+            <Coreconcepts {...CORE_CONCEPTS[3]}/>
+          </ul>
+        </section>
         <h2>Time to get started!</h2>
       </main>
     </div>
